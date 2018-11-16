@@ -1,8 +1,19 @@
 
-<%= render 'dogs/nav_home'%>
+<%= render 'pages/nav_home'%>
 
 
 <div class="container mt-4">
+
+<div class="row">
+<div class="col-md-6">
+  <% if @dog.errors%>
+<div class="alert alert-warning" role="alert">
+  <% @dog.errors.full_messages.each do |error|%>
+    <h6> <%= error %> </h6>
+  <% end %>
+</div>
+<% end %>
+</div></div>
   <div class="row">
     <div class="col-md-6">
     <div class="card">

@@ -1,6 +1,5 @@
 class DogsController < ApplicationController
-    def home        
-    end
+    before_action :logged_in_dog, only: [:index]
 
     def index
     end
@@ -21,8 +20,17 @@ class DogsController < ApplicationController
     end
     
 
+#Autorizacion, pregunta si el usuario esta logueado
+def logged_in_dog
+    unless logged_in?
+      redirect_to '/'
+    end
+  end
+
     private
     def dogs_params
         params.require(:dog).permit(:name,:password,:image)
     end
+
+    
 end

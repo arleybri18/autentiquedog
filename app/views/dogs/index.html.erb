@@ -1,5 +1,41 @@
+<% if logged_in?%>
 <%= render 'dogs/nav_dog'%>
+<% else %>
+<%= render 'pages/nav_home'%>
+<% end %>
 
-<h1><%= current_dog.name %></h1>
+<style>
+body , .card {
+  height: 100%;
+  background-color: #333;
+}
 
-<img src="<%= current_dog.image %>" alt="">
+.container .card{
+  display: -ms-flexbox;
+  display: flex-column;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+</style>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+
+            <h1>Hola <%= current_dog.name %></h1>
+
+        </div>
+    <div class="card-body">
+
+        <img src="<%= current_dog.image %>" alt="image" width="600px">
+
+    </div>
+
+</div>
+
+
+
+
+
+
