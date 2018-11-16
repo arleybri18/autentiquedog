@@ -7,10 +7,10 @@ class DogsController < ApplicationController
     end
     
     def create
-        @dog = Object.new(dogs_params)
+        @dog = Dog.new(dogs_params)
         if @dog.save
-          flash[:success] = "Object successfully created"
-          redirect_to @dog
+          flash[:success] = "Dog successfully created"
+          redirect_to '/'
         else
           flash[:error] = "Something went wrong"
           render 'new'
@@ -20,5 +20,6 @@ class DogsController < ApplicationController
 
     private
     def dogs_params
-        params.require(:dogs).permit(:name,:password,:email)
+        params.require(:dogs).permit(:name,:password,:image)
+    end
 end
